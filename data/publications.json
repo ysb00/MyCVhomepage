@@ -278,5 +278,15 @@
     "venue_en": "IEEE Access (in preparation)",
     "link": "",
     "highlight": false
+  },
+  {
+    "id": "working-rul-stage",
+    "year": "",
+    "type": "working",
+    "authors_en": "Byoungmo Koo, Jinhyeok Lee, Yunseon Byun, Geuntae Yoo, Jun-Geol Baek*",
+    "title_en": "Remaining useful life prediction under uncertain stage transitions via disentangled degradation pattern alignment",
+    "venue_en": "Advanced Engineering Informatics (under review)",
+    "link": "",
+    "highlight": false
   }
 ]
