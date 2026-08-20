@@ -90,7 +90,10 @@
 
     appendTitle(box, field(item, 'title'), item.link ? String(item.link) : '');
     appendLine(box, 'pub-authors', field(item, 'org'));
-    appendLine(box, 'pub-venue', item.date ? String(item.date) : '');
+    /* 화면에는 연-월까지만 찍는다.
+       date 는 정렬을 위해 YYYY-MM-DD 로 저장하지만, 일자를 모르면 01 로 채우도록
+       되어 있어(SPEC 3.2) 그대로 보여주면 실제 날짜가 아닌 값이 날짜처럼 읽힌다. */
+    appendLine(box, 'pub-venue', item.date ? String(item.date).substring(0, 7) : '');
     return box;
   }
 
