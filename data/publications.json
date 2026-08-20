@@ -4,7 +4,7 @@
     "year": 2020,
     "type": "patent",
     "authors_en": "Jun-Geol Baek, Yunseon Byun",
-    "title_en": "Mixed pattern image classification method using CNNs algorithm",
+    "title_en": "CNNs 알고리즘을 활용한 혼합 패턴 이미지 분류 방법론",
     "venue_en": "KR Patent, App. 10-2020-0106338 (pending)",
     "link": "",
     "highlight": false
@@ -224,7 +224,7 @@
     "year": 2024,
     "type": "patent",
     "authors_en": "Hong Jip Kim, Seung Hwan Park, Wooseok Jung, Hyo Beom Heo, Yunseon Byun, Sangjo Kim",
-    "title_en": "Method for detecting and diagnosing faults of aircraft turbofan fuel system",
+    "title_en": "항공기 터보팬 연료 시스템의 결함을 검출하고 진단하는 방법",
     "venue_en": "KR Patent, App. 10-2024-0120166 (under review)",
     "link": "",
     "highlight": false
@@ -254,7 +254,7 @@
     "year": 2025,
     "type": "patent",
     "authors_en": "Jun-Geol Baek, Yunseon Byun, Kwanyong Park, Jiwon Moon, Kyunggeun Park, Wonhwa Choi, Jinyoung Kim",
-    "title_en": "Preprocessing and analysis method for anomaly detection and early anomaly detection based on multivariate time series data",
+    "title_en": "다변량 시계열 데이터 기반 이상 탐지 및 사전 이상 탐지를 위한 전처리 및 분석 방법",
     "venue_en": "KR Patent, App. 10-2025-0189615 (pending)",
     "link": "",
     "highlight": false
