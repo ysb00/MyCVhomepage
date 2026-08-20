@@ -218,5 +218,25 @@
     "venue_en": "The International Journal of Advanced Manufacturing Technology, 1-16",
     "link": "",
     "highlight": false
+  },
+  {
+    "id": "working-patent-turbofan",
+    "year": "",
+    "type": "working",
+    "authors_en": "Hong Jip Kim, Seung Hwan Park, Hyo Beom Heo, Wooseok Jung, Yunseon Byun, Sangjo Kim",
+    "title_en": "Fault detection and diagnosis models of aircraft turbofan fuel system",
+    "venue_en": "KR Patent (under review)",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "working-aerospace-fuel",
+    "year": "",
+    "type": "working",
+    "authors_en": "Wooseok Jung‡, Yunseon Byun‡, Hyo Beom Heo, Hong Jip Kim*, Seung Hwan Park*",
+    "title_en": "Environmental configuration and fault diagnosis on aircraft turbofan fuel system",
+    "venue_en": "Aerospace Science and Technology (in preparation)",
+    "link": "",
+    "highlight": false
   }
 ]

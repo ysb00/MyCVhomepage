@@ -94,8 +94,10 @@
     return box;
   }
 
-  // 연도별로 묶어 섹션에 그린다 (SPEC 4.2). 항목이 없으면 섹션을 숨긴 채로 둔다.
-  function renderSection(id, rows, makeNode) {
+  /* 섹션 하나를 그린다 (SPEC 4.2). 항목이 없으면 섹션을 숨긴 채로 둔다.
+     groupByYear 가 false 면 연도 묶음 없이 목록만 그린다.
+     미출판 항목은 연도가 없어 묶을 기준이 없기 때문이다. */
+  function renderSection(id, rows, makeNode, groupByYear) {
     var section = document.getElementById(id);
     if (!section) return 0;
     if (rows.length === 0) return 0;
@@ -105,6 +107,22 @@
     var list = section.querySelector('.pub-list');
     var currentYear = null;
     var items = null;
+
+    if (!groupByYear) {
+      // 연도 거터는 비운 채로 유지한다. 그래야 다른 섹션과 항목의 왼쪽 선이 맞는다.
+      var flatGroup = document.createElement('div');
+      flatGroup.className = 'pub-group';
+      flatGroup.appendChild(document.createElement('span'));
+
+      var flat = document.createElement('div');
+      flat.className = 'pub-items';
+      for (var f = 0; f < rows.length; f++) flat.appendChild(makeNode(rows[f]));
+
+      flatGroup.appendChild(flat);
+      list.appendChild(flatGroup);
+      section.hidden = false;
+      return rows.length;
+    }
 
     for (var i = 0; i < rows.length; i++) {
       if (rows[i].__year !== currentYear) {
@@ -167,11 +185,19 @@
         return String(b.date || '').localeCompare(String(a.date || ''));
       });
 
+      // 미출판 항목은 연도가 없으므로 배열 역순으로만 정렬한다 (뒤에 붙인 것이 위로).
+      var workingRows = [];
+      for (var w = 0; w < pubs.length; w++) {
+        if (pubs[w].type === 'working') workingRows.push(pubs[w]);
+      }
+      workingRows.sort(function (a, b) { return b.__index - a.__index; });
+
       var count = 0;
-      count += renderSection('journal',    pick(pubs, 'journal'),    publicationNode);
-      count += renderSection('conference', pick(pubs, 'conference'), publicationNode);
-      count += renderSection('patent',     pick(pubs, 'patent'),     publicationNode);
-      count += renderSection('awards',     awards,                   awardNode);
+      count += renderSection('journal',    pick(pubs, 'journal'),    publicationNode, true);
+      count += renderSection('working',    workingRows,              publicationNode, false);
+      count += renderSection('conference', pick(pubs, 'conference'), publicationNode, true);
+      count += renderSection('patent',     pick(pubs, 'patent'),     publicationNode, true);
+      count += renderSection('awards',     awards,                   awardNode,       true);
 
       // 저자 표기 범례는 논문/발표/특허가 한 건이라도 있을 때만 보인다.
       var note = document.getElementById('author-note');

@@ -84,11 +84,17 @@ research-site/
 ]
 ```
 
-- `type`: `journal` | `conference` | `patent` — **이 세 가지 외의 값을 쓰지 말 것**
+- `type`: `journal` | `conference` | `patent` | `working` — **이 네 가지 외의 값을 쓰지 말 것**
+- `working` 은 아직 출판되지 않은 원고다 (투고 준비 중, 심사 중).
+  출판되면 `type` 을 `journal` 등으로 바꾸고 `year` 와 `venue_en` 을 채우면 그 섹션으로 옮겨간다.
+  상태 표기는 별도 필드를 만들지 않고 `venue_en` 에 적는다
+  (예: `Aerospace Science and Technology (in preparation)`)
 - `highlight`: `true` 이면 목록에서 강조 표시 (교신저자 논문, 대표 성과 등)
 - `link`: 없으면 `""`
 - 화면 정렬: `year` 내림차순, 같은 해 안에서는 **배열 역순**(뒤에 있는 항목이 위)
   → 폰에서 파일 끝에 객체를 추가하면 그 해의 맨 위에 표시된다 (8항 갱신 시나리오와 맞추기 위함)
+- `working` 항목은 연도가 없으므로 `year` 를 `""` 로 두고,
+  화면에서도 연도로 묶지 않고 **배열 역순**으로만 나열한다
 
 **특허 표기 규칙**: 특허는 저자·게재지 구조를 그대로 재활용한다.
 
@@ -146,12 +152,14 @@ research-site/
 | 순서 | 섹션 | 출처 |
 |---|---|---|
 | 1 | Journal Articles | publications.json (`type: journal`) |
-| 2 | Conference Presentations | publications.json (`type: conference`) |
-| 3 | Patents | publications.json (`type: patent`) |
-| 4 | Awards & Honors | awards.json |
+| 2 | Journal Articles (working) | publications.json (`type: working`) |
+| 3 | Conference Presentations | publications.json (`type: conference`) |
+| 4 | Patents | publications.json (`type: patent`) |
+| 5 | Awards & Honors | awards.json |
 
-- 앵커 id: `#journal`, `#conference`, `#patent`, `#awards`
-- 각 섹션 안에서는 연도별로 묶어 표시한다
+- 앵커 id: `#journal`, `#working`, `#conference`, `#patent`, `#awards`
+- 각 섹션 안에서는 연도별로 묶어 표시한다.
+  단 `working` 섹션은 연도가 없으므로 묶지 않는다 (3.1 참고)
 - **항목이 0건인 섹션은 섹션 자체를 숨긴다.** 빈 제목만 남으면 초라해 보인다
 
 **향후 확장 메모**: 항목이 많아져 페이지가 길어지면 섹션별 페이지 분리를 검토한다.
