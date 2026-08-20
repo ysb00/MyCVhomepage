@@ -100,18 +100,31 @@
     if (!section) return 0;
     if (rows.length === 0) return 0;
 
+    /* 한 연도를 .pub-group 하나로 묶는다.
+       왼쪽 거터에 연도, 오른쪽에 그 해의 항목들이 들어간다 (style.css 의 .pub-group 그리드). */
     var list = section.querySelector('.pub-list');
     var currentYear = null;
+    var items = null;
 
     for (var i = 0; i < rows.length; i++) {
       if (rows[i].__year !== currentYear) {
         currentYear = rows[i].__year;
+
+        var group = document.createElement('div');
+        group.className = 'pub-group';
+
         var head = document.createElement('h3');
         head.className = 'pub-year';
         head.textContent = currentYear;
-        list.appendChild(head);
+        group.appendChild(head);
+
+        items = document.createElement('div');
+        items.className = 'pub-items';
+        group.appendChild(items);
+
+        list.appendChild(group);
       }
-      list.appendChild(makeNode(rows[i]));
+      items.appendChild(makeNode(rows[i]));
     }
 
     section.hidden = false;
