@@ -45,7 +45,7 @@
     "type": "conference",
     "authors_en": "Yunseon Byun, Jun-Geol Baek*",
     "title_en": "Pattern recognition for the small size defects using image feature extraction and concatenation in manufacturing processes",
-    "venue_en": "2020 International Symposium on PRecision Engineering and Sustainable Manufacturing (PRESM), Seoul, Korea",
+    "venue_en": "2020 International Symposium on Precision Engineering and Sustainable Manufacturing (PRESM), Seoul, Korea",
     "link": "",
     "highlight": false
   },
@@ -55,7 +55,7 @@
     "type": "conference",
     "authors_en": "Seunghwan Song, Kyuchang Chang, Woo Young Hwang, Yunseon Byun, Jun-Geol Baek*",
     "title_en": "MaDGAN: Generative adversarial networks in manufacturing defect image synthesis",
-    "venue_en": "2020 International Symposium on PRecision Engineering and Sustainable Manufacturing (PRESM), Seoul, Korea",
+    "venue_en": "2020 International Symposium on Precision Engineering and Sustainable Manufacturing (PRESM), Seoul, Korea",
     "link": "",
     "highlight": false
   },
@@ -105,7 +105,7 @@
     "type": "conference",
     "authors_en": "Yunseon Byun, Jun-Geol Baek*",
     "title_en": "CNN-based single-type defect fusion network for mixed-type defects pattern recognition on wafer bin maps",
-    "venue_en": "2022 International Symposium on PRecision Engineering and Sustainable Manufacturing (PRESM), Jeju, Korea",
+    "venue_en": "2022 International Symposium on Precision Engineering and Sustainable Manufacturing (PRESM), Jeju, Korea",
     "link": "",
     "highlight": false
   },
@@ -195,7 +195,7 @@
     "type": "journal",
     "authors_en": "Junyong Lee, Yunseon Byun, Byoungmo Koo, Jun-Geol Baek*",
     "title_en": "Memory augmented coherent probabilistic forecasts for hierarchically related time series",
-    "venue_en": "Neurocomputing, 131075",
+    "venue_en": "Neurocomputing, 653, 131075",
     "link": "",
     "highlight": false
   },
@@ -235,7 +235,7 @@
     "type": "conference",
     "authors_en": "Byoungmo Koo, Yunseon Byun, Jun-Geol Baek*",
     "title_en": "Decomposed degradation pattern alignment for domain adaptation in machine remaining useful life prediction",
-    "venue_en": "2025 International Conference on Artificial Intelligence in Information and Communication (ICAIIC), Fukuoka, Japan, pp. 627-631",
+    "venue_en": "2025 International Conference on Artificial Intelligence in Information and Communication (ICAIIC), Fukuoka, Japan",
     "link": "",
     "highlight": false
   },
