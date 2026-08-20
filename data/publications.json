@@ -1,1 +1,222 @@
-[]
+[
+  {
+    "id": "2020-pate-01",
+    "year": 2020,
+    "type": "patent",
+    "authors_en": "Jun-Geol Baek, Yunseon Byun",
+    "title_en": "Mixed pattern image classification method using CNNs algorithm",
+    "venue_en": "KR Patent, App. 10-2020-0106338 (pending)",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2019-conf-01",
+    "year": 2019,
+    "type": "conference",
+    "authors_en": "Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Probability-based mixed pattern recognition using pre-trained convolutional neural networks",
+    "venue_en": "2019 Fall Conference of Korean Institute of Industrial Engineers (KIIE), Seoul, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2020-conf-04",
+    "year": 2020,
+    "type": "conference",
+    "authors_en": "Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Defect pattern classification using rotated-sum image feature concatenation on wafer bin maps",
+    "venue_en": "2020 Fall Conference of Korean Institute of Industrial Engineers (KIIE), Seoul, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2020-conf-03",
+    "year": 2020,
+    "type": "conference",
+    "authors_en": "Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Mixed pattern recognition methodology on wafer maps with pre-trained convolutional neural networks",
+    "venue_en": "2020 International Conference on Agents and Artificial Intelligence (ICAART), Valletta, Malta",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2020-conf-02",
+    "year": 2020,
+    "type": "conference",
+    "authors_en": "Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Pattern recognition for the small size defects using image feature extraction and concatenation in manufacturing processes",
+    "venue_en": "2020 International Symposium on PRecision Engineering and Sustainable Manufacturing (PRESM), Seoul, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2020-conf-01",
+    "year": 2020,
+    "type": "conference",
+    "authors_en": "Seunghwan Song, Kyuchang Chang, Woo Young Hwang, Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "MaDGAN: Generative Adversarial Networks in Manufacturing Defect Image Synthesis",
+    "venue_en": "2020 International Symposium on PRecision Engineering and Sustainable Manufacturing (PRESM), Seoul, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2021-conf-01",
+    "year": 2021,
+    "type": "conference",
+    "authors_en": "Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Contrastive CNN for mixed-type pattern recognition with single-type pattern on wafer bin maps",
+    "venue_en": "2021 European Conference on Operational Research (EURO), Athens, Greece",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2022-conf-04",
+    "year": 2022,
+    "type": "conference",
+    "authors_en": "Yunseon Byun, Kwanyong Park, Jiwon Moon, Jihyun Kim, Jun-Geol Baek*",
+    "title_en": "Semi-supervised defect detection on circular tube X-ray images using Faster contrast-based Augmented R-CNN (Faster AR-CNN)",
+    "venue_en": "2022 Spring Conference of Korean Institute of Industrial Engineers (KIIE), Seoul, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2022-conf-03",
+    "year": 2022,
+    "type": "conference",
+    "authors_en": "Yunseon Byun, Jun-Geol Baek*, Hyo Beom Heo, Seung Hwan Park*, Hyeon-Seok Shim",
+    "title_en": "Health index selection method of fault detection model for aircraft turbofan fuel system",
+    "venue_en": "2022 Fall Conference of Korean Institute of Information Technology (KIIT), Jeju, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2022-conf-02",
+    "year": 2022,
+    "type": "conference",
+    "authors_en": "Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Image synthesis with single-type patterns for mixed-type pattern recognition on wafer bin maps",
+    "venue_en": "2022 International Conference on Artificial Intelligence in Information and Communication (ICAIIC), Jeju, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2022-conf-01",
+    "year": 2022,
+    "type": "conference",
+    "authors_en": "Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "CNN-based single-type defect fusion network for mixed-type defects pattern recognition on wafer bin maps",
+    "venue_en": "2022 International Symposium on PRecision Engineering and Sustainable Manufacturing (PRESM), Jeju, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2023-conf-05",
+    "year": 2023,
+    "type": "conference",
+    "authors_en": "Hyo Beom Heo, Wooseok Jung, Hong Jip Kim*, Seung Hwan Park*, Yunseon Byun, Sangjo Kim",
+    "title_en": "Development of fault detection and diagnosis models of aircraft turbofan fuel system",
+    "venue_en": "2023 Spring Conference of Korean Society of Propulsion Engineers (KSPE), Jeju, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2023-conf-04",
+    "year": 2023,
+    "type": "conference",
+    "authors_en": "Byoung-Mo Koo, Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Weakly-supervised semantic segmentation for small defects in industrial images",
+    "venue_en": "2023 Fall Conference of Korean Institute of Industrial Engineers (KIIE), Seoul, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2023-conf-03",
+    "year": 2023,
+    "type": "conference",
+    "authors_en": "Junyong Lee, Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Long-term time series prediction using multi-scale attention mechanism",
+    "venue_en": "2023 Fall Conference of Korean Institute of Industrial Engineers (KIIE), Seoul, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2023-conf-02",
+    "year": 2023,
+    "type": "conference",
+    "authors_en": "Yeseul Lee, Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Time series anomaly detection using contrastive learning based one-class classification",
+    "venue_en": "2023 International Conference on Artificial Intelligence in Information and Communication (ICAIIC), Bali, Indonesia",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2023-conf-01",
+    "year": 2023,
+    "type": "conference",
+    "authors_en": "Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Unsupervised anomaly detection considering angle-wise relational function in latent space of time series data",
+    "venue_en": "2023 International Conference on Production Research (ICPR), Cluj-Napoca, Romania",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2024-conf-01",
+    "year": 2024,
+    "type": "conference",
+    "authors_en": "Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Selective filtering-based label correction techniques of multivariate time series data for facility condition diagnosis",
+    "venue_en": "2024 Spring Conference of Korean Institute of Industrial Engineers (KIIE), Yeosu, Korea",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2021-jour-01",
+    "year": 2021,
+    "type": "journal",
+    "authors_en": "Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Pattern classification for small-sized defects using multi-head CNN in semiconductor manufacturing",
+    "venue_en": "International Journal of Precision Engineering and Manufacturing, 22, 1681-1691",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2024-jour-01",
+    "year": 2024,
+    "type": "journal",
+    "authors_en": "Yunseon Byun, Daeju Maeng, Jun-Geol Baek*",
+    "title_en": "Unsupervised fault detection using frequency-wise angular filtering in contaminated vibration signals",
+    "venue_en": "International Journal of Production Research, 1-27",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2025-jour-03",
+    "year": 2025,
+    "type": "journal",
+    "authors_en": "Junyong Lee, Yunseon Byun, Byoungmo Koo, Jun-Geol Baek*",
+    "title_en": "Memory augmented coherent probabilistic forecasts for hierarchically related time series",
+    "venue_en": "Neurocomputing, 131075",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2025-jour-02",
+    "year": 2025,
+    "type": "journal",
+    "authors_en": "Gon Kim, Kyuchang Chang, Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Autonomous PID tuning: Two-phase reinforcement learning through adversarial imitation learning under imperfect demonstrations",
+    "venue_en": "IEEE Transactions on Automation Science and Engineering",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2025-jour-01",
+    "year": 2025,
+    "type": "journal",
+    "authors_en": "Uzair Ali, Anton Gafurov, Muhammad Irfan, Qasim Shahzad, Yunseon Byun, Inyoung Kim*, Taik-Min Lee*",
+    "title_en": "AI modeling of web tension dynamics and optimization of control parameters for roll-to-roll system",
+    "venue_en": "The International Journal of Advanced Manufacturing Technology, 1-16",
+    "link": "",
+    "highlight": false
+  }
+]
