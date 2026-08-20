@@ -265,7 +265,7 @@
     "type": "working",
     "authors_en": "Wonhwa Choi, Yunseon Byun, Kyeonggeun Park, Kwan-Yong Park, Jun-Geol Baek*",
     "title_en": "SAFE: Selective adaptive frequency-bin exclusion for contamination-robust vibration anomaly detection",
-    "venue_en": "",
+    "venue_en": "Advanced Engineering Informatics (under review)",
     "link": "",
     "highlight": false
   },
@@ -275,7 +275,7 @@
     "type": "working",
     "authors_en": "Kwan-Yong Park‡, Soyoung Park‡, Yunseon Byun, Jun-Geol Baek*",
     "title_en": "BW-TabPFGen: Bin-wise TabPFGen-based augmentation of imbalanced semiconductor yield data with gradient-based defect factor analysis",
-    "venue_en": "",
+    "venue_en": "IEEE Access (in preparation)",
     "link": "",
     "highlight": false
   }
