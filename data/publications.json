@@ -180,12 +180,12 @@
     "highlight": false
   },
   {
-    "id": "2024-jour-01",
-    "year": 2024,
+    "id": "2025-jour-04",
+    "year": 2025,
     "type": "journal",
     "authors_en": "Yunseon Byun, Daeju Maeng, Jun-Geol Baek*",
     "title_en": "Unsupervised fault detection using frequency-wise angular filtering in contaminated vibration signals",
-    "venue_en": "International Journal of Production Research, 1-27",
+    "venue_en": "International Journal of Production Research, 63(10), 3733-3759",
     "link": "",
     "highlight": false
   },
@@ -245,7 +245,7 @@
     "type": "conference",
     "authors_en": "Byoungmo Koo, Yunseon Byun, Jun-Geol Baek*",
     "title_en": "Decomposed degradation pattern alignment for domain adaptation in machine remaining useful life prediction",
-    "venue_en": "2025 International Conference on Artificial Intelligence in Information and Communication (ICAIIC), Fukuoka, Japan",
+    "venue_en": "2025 International Conference on Artificial Intelligence in Information and Communication (ICAIIC), Fukuoka, Japan, pp. 627-631",
     "link": "",
     "highlight": false
   },
