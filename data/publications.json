@@ -54,7 +54,7 @@
     "year": 2020,
     "type": "conference",
     "authors_en": "Seunghwan Song, Kyuchang Chang, Woo Young Hwang, Yunseon Byun, Jun-Geol Baek*",
-    "title_en": "MaDGAN: Generative Adversarial Networks in Manufacturing Defect Image Synthesis",
+    "title_en": "MaDGAN: Generative adversarial networks in manufacturing defect image synthesis",
     "venue_en": "2020 International Symposium on PRecision Engineering and Sustainable Manufacturing (PRESM), Seoul, Korea",
     "link": "",
     "highlight": false
@@ -245,7 +245,7 @@
     "type": "conference",
     "authors_en": "Byoungmo Koo, Yunseon Byun, Jun-Geol Baek*",
     "title_en": "Decomposed degradation pattern alignment for domain adaptation in machine remaining useful life prediction",
-    "venue_en": "2025 International Conference on Artificial Intelligence in Information and Communication (ICAIIC), pp. 627-631, IEEE",
+    "venue_en": "2025 International Conference on Artificial Intelligence in Information and Communication (ICAIIC), Fukuoka, Japan",
     "link": "",
     "highlight": false
   }
