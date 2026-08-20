@@ -220,12 +220,12 @@
     "highlight": false
   },
   {
-    "id": "patent-turbofan-review",
-    "year": "",
+    "id": "2024-pate-01",
+    "year": 2024,
     "type": "patent",
-    "authors_en": "Hong Jip Kim, Seung Hwan Park, Hyo Beom Heo, Wooseok Jung, Yunseon Byun, Sangjo Kim",
-    "title_en": "Fault detection and diagnosis models of aircraft turbofan fuel system",
-    "venue_en": "KR Patent (under review)",
+    "authors_en": "Hong Jip Kim, Seung Hwan Park, Wooseok Jung, Hyo Beom Heo, Yunseon Byun, Sangjo Kim",
+    "title_en": "Method for detecting and diagnosing faults of aircraft turbofan fuel system",
+    "venue_en": "KR Patent, App. 10-2024-0120166 (under review)",
     "link": "",
     "highlight": false
   },
