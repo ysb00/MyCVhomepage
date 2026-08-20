@@ -133,7 +133,8 @@
 
         var head = document.createElement('h3');
         head.className = 'pub-year';
-        head.textContent = currentYear;
+        // 연도를 모르는 항목(심사 중인 특허 등)은 거터를 비운다. 0 을 찍지 않기 위함이다.
+        head.textContent = currentYear > 0 ? currentYear : '';
         group.appendChild(head);
 
         items = document.createElement('div');
@@ -151,10 +152,17 @@
 
   /* 정렬 (SPEC 3.1)
      year 내림차순, 같은 해 안에서는 배열 역순 — 뒤에 있는 항목이 위로 온다.
-     폰에서 파일 끝에 객체를 덧붙이면 그 해의 맨 위에 표시되게 하기 위함이다. */
+     폰에서 파일 끝에 객체를 덧붙이면 그 해의 맨 위에 표시되게 하기 위함이다.
+
+     연도가 비어 있는 항목(심사 중인 특허 등)은 아직 확정되지 않은 것이므로
+     맨 아래가 아니라 맨 위에 둔다. */
+  function yearRank(row) {
+    return row.__year > 0 ? row.__year : Infinity;
+  }
+
   function sortPublications(rows) {
     return rows.sort(function (a, b) {
-      if (b.__year !== a.__year) return b.__year - a.__year;
+      if (yearRank(b) !== yearRank(a)) return yearRank(b) - yearRank(a);
       return b.__index - a.__index;
     });
   }

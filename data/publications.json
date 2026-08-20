@@ -215,14 +215,14 @@
     "type": "journal",
     "authors_en": "Uzair Ali, Anton Gafurov, Muhammad Irfan, Qasim Shahzad, Yunseon Byun, Inyoung Kim*, Taik-Min Lee*",
     "title_en": "AI modeling of web tension dynamics and optimization of control parameters for roll-to-roll system",
-    "venue_en": "The International Journal of Advanced Manufacturing Technology, 1-16",
+    "venue_en": "The International Journal of Advanced Manufacturing Technology, 141(5), 2709-2724",
     "link": "",
     "highlight": false
   },
   {
-    "id": "working-patent-turbofan",
+    "id": "patent-turbofan-review",
     "year": "",
-    "type": "working",
+    "type": "patent",
     "authors_en": "Hong Jip Kim, Seung Hwan Park, Hyo Beom Heo, Wooseok Jung, Yunseon Byun, Sangjo Kim",
     "title_en": "Fault detection and diagnosis models of aircraft turbofan fuel system",
     "venue_en": "KR Patent (under review)",
@@ -236,6 +236,16 @@
     "authors_en": "Wooseok Jung‡, Yunseon Byun‡, Hyo Beom Heo, Hong Jip Kim*, Seung Hwan Park*",
     "title_en": "Environmental configuration and fault diagnosis on aircraft turbofan fuel system",
     "venue_en": "Aerospace Science and Technology (in preparation)",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2025-conf-01",
+    "year": 2025,
+    "type": "conference",
+    "authors_en": "Byoungmo Koo, Yunseon Byun, Jun-Geol Baek*",
+    "title_en": "Decomposed degradation pattern alignment for domain adaptation in machine remaining useful life prediction",
+    "venue_en": "2025 International Conference on Artificial Intelligence in Information and Communication (ICAIIC), pp. 627-631, IEEE",
     "link": "",
     "highlight": false
   }
