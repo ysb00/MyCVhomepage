@@ -12,35 +12,21 @@
  */
 
 (function () {
-  var isEn = document.documentElement.lang === 'en';
-  var base = isEn ? '../' : '';   // data/ 는 한/영이 공유한다 (SPEC 2항)
-
   var statusBox = document.getElementById('data-status');
-
-  // 화면에 보일 문구. 페이지 언어에 따라 고른다.
-  var T = isEn ? {
-    empty:   'No entries yet.',
-    error:   'Failed to load data: ',
-    hintFile:' (Opened as a local file. Data loads only over http(s) — check the published site.)',
-    link:    'Link'
-  } : {
-    empty:   '아직 등록된 항목이 없습니다.',
-    error:   '데이터를 불러오지 못했습니다: ',
-    hintFile:' (파일을 직접 연 상태입니다. 데이터는 http(s) 로 열어야 불러올 수 있습니다.)',
-    link:    '링크'
-  };
 
   function showError(message) {
     if (!statusBox) return;
     statusBox.className = 'data-error';
     // file:// 로 열면 fetch 가 막힌다. 원인을 헷갈리지 않도록 안내를 덧붙인다.
-    statusBox.textContent = T.error + message +
-      (location.protocol === 'file:' ? T.hintFile : '');
+    statusBox.textContent = 'Failed to load data: ' + message +
+      (location.protocol === 'file:'
+        ? ' (Opened as a local file. Data loads only over http(s) — check the published site.)'
+        : '');
   }
 
   // JSON 을 읽는다. 문법 오류와 404 를 구분해서 알려준다.
   function loadJson(name) {
-    var url = base + 'data/' + name;
+    var url = 'data/' + name;
     return fetch(url).then(function (res) {
       if (!res.ok) throw new Error(url + ' (HTTP ' + res.status + ')');
       return res.text();
@@ -50,10 +36,10 @@
         parsed = JSON.parse(text);
       } catch (e) {
         // 폰에서 쉼표를 빠뜨렸을 때 어느 파일인지 알아야 한다.
-        throw new Error(url + ' — JSON ' + (isEn ? 'syntax error' : '문법 오류') + ': ' + e.message);
+        throw new Error(url + ' — JSON syntax error: ' + e.message);
       }
       if (!Array.isArray(parsed)) {
-        throw new Error(url + (isEn ? ' — the top level must be an array [ ]' : ' — 최상위가 배열 [ ] 이어야 합니다'));
+        throw new Error(url + ' — the top level must be an array [ ]');
       }
       return parsed;
     });
@@ -61,8 +47,7 @@
 
   function field(item, name) {
     // 선택 필드가 비었거나 키가 없어도 렌더링이 멈추지 않도록 한다.
-    var v = item[name + (isEn ? '_en' : '_ko')];
-    if (v === undefined || v === null || v === '') v = item[name + (isEn ? '_ko' : '_en')];
+    var v = item[name + '_en'];
     return (v === undefined || v === null) ? '' : String(v);
   }
 
@@ -74,14 +59,8 @@
     parent.appendChild(el);
   }
 
-  // 논문 / 학회 발표 / 특허 항목 한 건
-  function publicationNode(item) {
-    var box = document.createElement('div');
-    box.className = 'pub-item' + (item.highlight === true ? ' is-highlight' : '');
-
-    var title = field(item, 'title');
-    var link = item.link ? String(item.link) : '';
-
+  // 제목 한 줄. link 가 있으면 제목 자체를 링크로 만든다.
+  function appendTitle(box, title, link) {
     if (link) {
       var a = document.createElement('a');
       a.className = 'pub-title';
@@ -91,7 +70,14 @@
     } else {
       appendLine(box, 'pub-title', title);
     }
+  }
 
+  // 논문 / 학회 발표 / 특허 항목 한 건
+  function publicationNode(item) {
+    var box = document.createElement('div');
+    box.className = 'pub-item' + (item.highlight === true ? ' is-highlight' : '');
+
+    appendTitle(box, field(item, 'title'), item.link ? String(item.link) : '');
     appendLine(box, 'pub-authors', field(item, 'authors'));
     appendLine(box, 'pub-venue', field(item, 'venue'));
     return box;
@@ -102,19 +88,7 @@
     var box = document.createElement('div');
     box.className = 'pub-item';
 
-    var title = field(item, 'title');
-    var link = item.link ? String(item.link) : '';
-
-    if (link) {
-      var a = document.createElement('a');
-      a.className = 'pub-title';
-      a.href = link;
-      a.textContent = title + ' ↗';
-      box.appendChild(a);
-    } else {
-      appendLine(box, 'pub-title', title);
-    }
-
+    appendTitle(box, field(item, 'title'), item.link ? String(item.link) : '');
     appendLine(box, 'pub-authors', field(item, 'org'));
     appendLine(box, 'pub-venue', item.date ? String(item.date) : '');
     return box;
@@ -192,7 +166,7 @@
 
       if (statusBox) {
         if (count === 0) {
-          statusBox.textContent = T.empty;
+          statusBox.textContent = 'No entries yet.';
         } else {
           statusBox.remove();
         }

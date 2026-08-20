@@ -4,7 +4,6 @@
 연구 분야와 연구 실적을 누적해 정리하기 위한 정적 사이트다.
 
 - 공개 주소: <https://ysb00.github.io/MyCVhomepage/>
-- 영문: <https://ysb00.github.io/MyCVhomepage/en/>
 - 사양서: [SPEC.md](SPEC.md) · 작업 규칙: [CLAUDE.md](CLAUDE.md)
 
 빌드 도구와 프레임워크를 쓰지 않는다. **휴대폰에서 GitHub 웹 편집기로 직접 갱신**하기
@@ -22,11 +21,8 @@
   "id": "2026-jcp-01",
   "year": 2026,
   "type": "journal",
-  "authors_ko": "변윤선*, 홍길동†",
   "authors_en": "Y. Byun*, G. Hong†",
-  "title_ko": "논문 제목",
   "title_en": "Paper Title",
-  "venue_ko": "학술지명 12(3), 45-67",
   "venue_en": "Journal Name 12(3), 45-67",
   "link": "https://doi.org/...",
   "highlight": false
@@ -41,10 +37,10 @@
 | `link` | 없으면 `""` (키 자체를 지우지 말 것) |
 | `highlight` | `true` 면 목록에서 강조 표시. 보통은 `false` |
 
-- **제1저자 `*` / 교신저자 `†`** 표시는 `authors_*` 문자열 안에 직접 적는다.
+- **제1저자 `*` / 교신저자 `†`** 표시는 `authors_en` 문자열 안에 직접 적는다.
   한 건이라도 있으면 페이지 하단에 범례가 자동으로 나온다.
 - **특허**는 같은 파일에 `"type": "patent"` 로 넣는다.
-  `authors_*` 에 발명자, `venue_*` 에 `등록 10-1234567` 또는 `출원 10-2026-0001234`,
+  `authors_en` 에 발명자, `venue_en` 에 `Reg. 10-1234567` 또는 `App. 10-2026-0001234`,
   `year` 에 등록(또는 출원) 연도를 쓴다.
 
 ### 주의
@@ -62,9 +58,7 @@
 {
   "id": "2026-best-paper",
   "date": "2026-05-01",
-  "title_ko": "우수논문상",
   "title_en": "Best Paper Award",
-  "org_ko": "한국OO학회",
   "org_en": "Korean Society of OO",
   "link": ""
 }
@@ -85,22 +79,21 @@
 
 이 텍스트들은 검색 노출 대상이라 JSON 이 아니라 **HTML 에 직접** 들어 있다.
 
-| 고칠 내용 | 한글 | 영문 |
-|---|---|---|
-| 이름·소속·한 줄 소개·프로필 링크·약력 | `index.html` | `en/index.html` |
-| 연구 분야 설명 | `research.html` | `en/research.html` |
+| 고칠 내용 | 파일 |
+|---|---|
+| 이름·소속·한 줄 소개·프로필 링크·약력 | `index.html` |
+| 연구 분야 설명 | `research.html` |
 
 각 파일에 `TODO(원고)` 주석이 남아 있다. 원고가 준비되면 그 자리를 채우고
 `class="todo"` 를 지우면 노란 "원고 준비 중" 표시가 사라진다.
-한글과 영문 두 곳을 함께 고쳐야 한다.
+사이트 본문은 영어로 쓴다.
 
 ---
 
 ## 구조
 
 ```
-index.html / research.html / publications.html   한글 3개 탭
-en/                                              영문 3개 탭 (구조 동일)
+index.html / research.html / publications.html   3개 탭
 data/publications.json                           논문 · 학회 발표 · 특허
 data/awards.json                                 수상
 assets/css/style.css                             스타일 (다크모드 포함)
@@ -112,8 +105,8 @@ assets/img/research/                             연구 분야 그림
 .nojekyll                                        GitHub Pages 의 Jekyll 처리 비활성화
 ```
 
-`data/` 는 한글·영문 페이지가 **공유**한다. 논문을 한 번만 적으면 양쪽에 반영된다
-(영문 페이지는 `_en` 필드, 한글 페이지는 `_ko` 필드를 쓴다).
+필드에 붙은 `_en` 접미사는 사이트가 영어 전용이 된 뒤에도 그대로 둔다.
+나중에 한글을 다시 넣고 싶어지면 기존 항목을 고치지 않고 `_ko` 를 덧붙이면 되기 때문이다.
 
 ## 로컬에서 확인하기
 
