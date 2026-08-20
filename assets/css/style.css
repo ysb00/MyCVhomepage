@@ -1,0 +1,323 @@
+/* 개인 연구 홈페이지 스타일
+   - 외부 폰트/CDN 을 쓰지 않는다 (SPEC 1항). 시스템 폰트만 사용한다.
+   - 색은 CSS 변수로 두고, 다크모드는 prefers-color-scheme 으로 변수만 교체한다.
+     (JS 토글 버튼은 두지 않는다. 상태 저장이 필요해져 구조가 복잡해진다) */
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f6f6f4;
+  --text: #1c1c1c;
+  --text-muted: #63636a;
+  --border: #e0e0dc;
+  --accent: #1f4e79;
+  --todo-bg: #fdf6e3;
+  --todo-border: #e0cfa0;
+  --todo-text: #6b5518;
+  --highlight-bar: #1f4e79;
+  --max-width: 46rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c;
+    --bg-soft: #1e2126;
+    --text: #e6e6e3;
+    --text-muted: #9a9aa2;
+    --border: #2e3238;
+    --accent: #8ab4dd;
+    --todo-bg: #2a2517;
+    --todo-border: #4d431f;
+    --todo-text: #d6c58a;
+    --highlight-bar: #8ab4dd;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Segoe UI",
+               "Malgun Gothic", "Noto Sans KR", sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  word-break: keep-all;      /* 한국어 줄바꿈이 단어 중간에서 끊기지 않도록 */
+  overflow-wrap: break-word; /* 단, 긴 URL 은 넘치지 않게 강제 줄바꿈 */
+}
+
+a { color: var(--accent); }
+a:hover { text-decoration: none; }
+
+/* ---------- 헤더 / 탭 (layout.js 가 주입한다) ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.site-header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.9rem 1.2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
+}
+
+.site-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.lang-switch {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* 탭 바 — 3개 탭이 루트 HTML 3개와 1:1 대응한다 (SPEC 2항) */
+.site-tabs {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.2rem;
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;            /* 좁은 폰 화면에서 탭이 잘리지 않도록 */
+  scrollbar-width: none;
+}
+.site-tabs::-webkit-scrollbar { display: none; }
+
+.site-tabs a {
+  display: block;
+  padding: 0.5rem 0 0.6rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;         /* 헤더의 1px 경계선 위에 탭 밑줄을 겹친다 */
+}
+.site-tabs a:hover { color: var(--text); }
+
+/* 현재 보고 있는 탭. layout.js 가 aria-current="page" 를 붙인다 */
+.site-tabs a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+}
+
+/* JS 가 꺼져 있을 때만 보이는 대체 내비게이션 */
+.noscript-nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+/* ---------- 본문 ---------- */
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.2rem 3rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.2rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  margin: 2.4rem 0 0.7rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 1.4rem 0 0.4rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+p { margin: 0.7rem 0; }
+
+/* ---------- 홈: 프로필 ---------- */
+
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-photo {
+  width: 132px;
+  height: 132px;
+  flex: none;
+  border-radius: 6px;
+  object-fit: cover;
+  background: var(--bg-soft);
+}
+
+/* 사진 원고가 오기 전까지 자리만 잡아두는 상자 */
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+}
+
+.profile-text { min-width: 15rem; flex: 1; }
+.profile-text h1 { margin: 0 0 0.4rem; }
+
+.name-en {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0;
+  margin-top: 0.15rem;
+}
+
+.affiliation { margin: 0.2rem 0; }
+.tagline { margin: 0.4rem 0 0; color: var(--text-muted); }
+
+/* ---------- 목록 ---------- */
+
+.link-list, .bio-list {
+  list-style: none;
+  margin: 0.6rem 0;
+  padding: 0;
+}
+
+.link-list li { padding: 0.2rem 0; }
+
+.bio-list li {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1rem;
+}
+.bio-list li:last-child { border-bottom: none; }
+
+.bio-year {
+  flex: none;
+  width: 9rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 원고 대기 표시 ----------
+   원고가 없는 자리를 더미 텍스트로 채우지 않는다 (CLAUDE.md).
+   대신 눈에 띄게 표시해 빠뜨리지 않도록 한다. */
+
+.todo {
+  background: var(--todo-bg);
+  border-left: 3px solid var(--todo-border);
+  color: var(--todo-text);
+  padding: 0.4rem 0.7rem;
+  border-radius: 0 3px 3px 0;
+  font-size: 0.92rem;
+}
+li.todo { margin: 0.3rem 0; }
+
+/* ---------- 연구 실적 ---------- */
+
+.anchor-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 1.4rem;
+  background: var(--bg-soft);
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.pub-section { scroll-margin-top: 1rem; }
+
+.pub-year {
+  margin: 1.3rem 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-item {
+  padding: 0.55rem 0 0.55rem 0.9rem;
+  border-left: 2px solid var(--border);
+}
+
+/* highlight: true 인 항목 (교신저자 논문, 대표 성과 등) */
+.pub-item.is-highlight {
+  border-left-color: var(--highlight-bar);
+  background: var(--bg-soft);
+  border-radius: 0 4px 4px 0;
+  padding-right: 0.7rem;
+}
+
+.pub-title { display: block; font-weight: 600; }
+.pub-authors, .pub-venue { display: block; font-size: 0.92rem; color: var(--text-muted); }
+.pub-venue { font-style: italic; }
+.pub-link { font-size: 0.85rem; }
+
+.pub-note { font-size: 0.88rem; color: var(--text-muted); }
+
+/* JSON 로드 실패 시 원인을 화면에 띄운다 (SPEC 5항).
+   폰에서 JSON 문법을 틀렸을 때 여기서 알아챌 수 있어야 한다. */
+.data-error {
+  background: var(--todo-bg);
+  border-left: 3px solid var(--todo-border);
+  color: var(--todo-text);
+  padding: 0.6rem 0.8rem;
+  border-radius: 0 3px 3px 0;
+  font-size: 0.9rem;
+}
+
+/* ---------- 푸터 ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+.site-footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+}
+
+/* ---------- 좁은 화면 ---------- */
+
+@media (max-width: 32rem) {
+  body { font-size: 16px; }
+  main { padding: 1.5rem 1rem 2.5rem; }
+  .site-header-inner, .site-tabs, .noscript-nav, .site-footer-inner { padding-left: 1rem; padding-right: 1rem; }
+  .profile { gap: 1rem; }
+  .profile-photo { width: 96px; height: 96px; }
+  .bio-year { width: 100%; }
+}
