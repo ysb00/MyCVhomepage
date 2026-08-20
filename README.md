@@ -41,7 +41,9 @@
   한 건이라도 있으면 페이지 하단에 범례가 자동으로 나온다.
 - **아직 출판되지 않은 원고**(투고 준비 중, 심사 중)는 `"type": "working"` 으로 넣는다.
   연도가 없으므로 `"year": ""` 로 두고, 상태는 `venue_en` 에 적는다
-  (예: `"venue_en": "Aerospace Science and Technology (in preparation)"`).
+  (예: `"venue_en": "IEEE Access (in preparation)"`).
+  투고할 저널이 아직 정해지지 않았으면 상태만 적는다
+  (예: `"venue_en": "In preparation"`).
   화면에서는 `Journal Articles (working)` 섹션에 연도 묶음 없이 나온다.
   출판되면 `type` 을 `journal` 로 바꾸고 `year` 와 `venue_en` 을 채우면 그 섹션으로 옮겨간다.
 - **특허**는 같은 파일에 `"type": "patent"` 로 넣는다.
