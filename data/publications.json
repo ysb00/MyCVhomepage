@@ -3,7 +3,7 @@
     "id": "2020-pate-01",
     "year": 2020,
     "type": "patent",
-    "authors_en": "Jun-Geol Baek, Yunseon Byun",
+    "authors_en": "백준걸, 변윤선",
     "title_en": "CNNs 알고리즘을 활용한 혼합 패턴 이미지 분류 방법론",
     "venue_en": "KR Patent, App. 10-2020-0106338 (pending)",
     "link": "",
@@ -223,19 +223,9 @@
     "id": "2024-pate-01",
     "year": 2024,
     "type": "patent",
-    "authors_en": "Hong Jip Kim, Seung Hwan Park, Wooseok Jung, Hyo Beom Heo, Yunseon Byun, Sangjo Kim",
+    "authors_en": "김홍집, 박승환, 정우석, 허효범, 변윤선, 김상조",
     "title_en": "항공기 터보팬 연료 시스템의 결함을 검출하고 진단하는 방법",
     "venue_en": "KR Patent, App. 10-2024-0120166 (under review)",
-    "link": "",
-    "highlight": false
-  },
-  {
-    "id": "working-aerospace-fuel",
-    "year": "",
-    "type": "working",
-    "authors_en": "Wooseok Jung‡, Yunseon Byun‡, Hyo Beom Heo, Hong Jip Kim*, Seung Hwan Park*",
-    "title_en": "Environmental configuration and fault diagnosis on aircraft turbofan fuel system",
-    "venue_en": "Aerospace Science and Technology (in preparation)",
     "link": "",
     "highlight": false
   },
@@ -253,9 +243,19 @@
     "id": "2025-pate-01",
     "year": 2025,
     "type": "patent",
-    "authors_en": "Jun-Geol Baek, Yunseon Byun, Kwanyong Park, Jiwon Moon, Kyunggeun Park, Wonhwa Choi, Jinyoung Kim",
+    "authors_en": "백준걸, 변윤선, 박관용, 문지원, 박경근, 최원화, 김진영",
     "title_en": "다변량 시계열 데이터 기반 이상 탐지 및 사전 이상 탐지를 위한 전처리 및 분석 방법",
     "venue_en": "KR Patent, App. 10-2025-0189615 (pending)",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "working-phm-turbofan",
+    "year": "",
+    "type": "working",
+    "authors_en": "Hyo Beom Heo, Wooseok Jeong, Yunseon Byun, Sangjo Kim, Hong-Jip Kim, Seung Hwan Park*",
+    "title_en": "Enhancing PHM for aircraft turbofan engines: Fuel system modeling with AMESim and data-driven diagnostic labeling",
+    "venue_en": "",
     "link": "",
     "highlight": false
   }
