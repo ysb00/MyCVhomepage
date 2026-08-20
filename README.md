@@ -91,6 +91,7 @@
 |---|---|
 | 이름·소속·한 줄 소개·프로필 링크·약력 | `index.html` |
 | 연구 분야 설명 | `research.html` |
+| 과제 목록 | `projects.html` |
 
 각 파일에 `TODO(원고)` 주석이 남아 있다. 원고가 준비되면 그 자리를 채우고
 `class="todo"` 를 지우면 노란 "원고 준비 중" 표시가 사라진다.
@@ -101,7 +102,8 @@
 ## 구조
 
 ```
-index.html / research.html / publications.html   3개 탭
+index.html / research.html /
+publications.html / projects.html                4개 탭
 data/publications.json                           논문 · 학회 발표 · 특허
 data/awards.json                                 수상
 assets/css/style.css                             스타일 (다크모드 포함)
