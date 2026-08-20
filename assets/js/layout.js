@@ -15,11 +15,12 @@
   var page = path.substring(path.lastIndexOf('/') + 1);
   if (page === '') page = 'index.html';
 
-  // 탭 3개. HTML 3개와 1:1 대응한다 (SPEC 2항).
+  // 탭 4개. HTML 4개와 1:1 대응한다 (SPEC 2항).
   var tabs = [
     { file: 'index.html',        label: 'Home' },
     { file: 'research.html',     label: 'Research' },
-    { file: 'publications.html', label: 'Publications' }
+    { file: 'publications.html', label: 'Publications' },
+    { file: 'projects.html',     label: 'Projects' }
   ];
 
   var siteTitle = 'Yunseon Byun';

@@ -32,7 +32,8 @@
 research-site/
 ├── index.html              # 홈 — 소개 + 약력
 ├── research.html           # 연구 분야
-├── publications.html       # 연구 실적 (4개 섹션 통합)
+├── publications.html       # 연구 실적 (5개 섹션 통합)
+├── projects.html           # 과제
 ├── data/
 │   ├── publications.json   # journal / conference / patent
 │   └── awards.json         # 수상 및 영예
@@ -49,7 +50,7 @@ research-site/
 └── README.md               # 데이터 갱신 방법 안내 (폰에서 볼 문서)
 ```
 
-탭은 3개이며 루트의 HTML 3개와 1:1 대응한다.
+탭은 4개이며 루트의 HTML 4개와 1:1 대응한다.
 
 ---
 
@@ -139,7 +140,12 @@ research-site/
 |---|---|---|
 | index (Home) | 이름·소속, 한 줄 소개, 약력, 외부 프로필 링크, CV 링크, 이메일 | - |
 | research | 연구 분야 설명 전문 | - |
-| publications | 섹션 제목 4개만 | publications.json + awards.json |
+| publications | 섹션 제목 5개만 | publications.json + awards.json |
+| projects | 과제 목록 전문 | - |
+
+**과제를 JSON 으로 빼지 않는 이유**: 실적처럼 자주 늘어나지 않고,
+항목마다 담당 내용 설명이 붙어 구조가 평평하지 않다.
+검색 노출 대상이기도 하다. 항목이 크게 늘면 그때 다시 검토한다.
 
 ### 4.1 Home 상세 구성
 
@@ -188,12 +194,12 @@ research-site/
 
 ## 6. 헤더/푸터 중복 문제
 
-HTML 파일이 3개이므로 메뉴 변경 시 3곳을 고쳐야 한다.
+HTML 파일이 4개이므로 메뉴 변경 시 4곳을 고쳐야 한다.
 완화책으로 **헤더/푸터만 `assets/js/layout.js` 로 주입**한다.
 내비게이션은 검색 노출 영향이 적어 이 방식이 허용된다.
 단, 본문 텍스트는 절대 JS로 주입하지 말 것.
 
-**메모**: 파일이 3개뿐이라 손으로 관리하는 것도 불가능하지 않다.
+**메모**: 파일이 4개뿐이라 손으로 관리하는 것도 불가능하지 않다.
 JS 주입을 걷어내고 각 HTML에 헤더를 직접 넣는 방식으로 바꾸고 싶다면 사용자와 상의할 것.
 
 ---
