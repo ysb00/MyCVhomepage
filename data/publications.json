@@ -248,5 +248,15 @@
     "venue_en": "2025 International Conference on Artificial Intelligence in Information and Communication (ICAIIC), Fukuoka, Japan",
     "link": "",
     "highlight": false
+  },
+  {
+    "id": "2025-pate-01",
+    "year": 2025,
+    "type": "patent",
+    "authors_en": "Jun-Geol Baek, Yunseon Byun, Kwanyong Park, Jiwon Moon, Kyunggeun Park, Wonhwa Choi, Jinyoung Kim",
+    "title_en": "Preprocessing and analysis method for anomaly detection and early anomaly detection based on multivariate time series data",
+    "venue_en": "KR Patent, App. 10-2025-0189615 (pending)",
+    "link": "",
+    "highlight": false
   }
 ]
