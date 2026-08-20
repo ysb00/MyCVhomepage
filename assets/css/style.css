@@ -178,6 +178,10 @@ h3 {
 
 p { margin: 0.7rem 0; }
 
+/* 본문의 일반 불릿 목록 (연구 분야 페이지의 주제 항목 등) */
+main ul { margin: 0.6rem 0; padding-left: 1.15rem; }
+main ul li { padding: 0.12rem 0; }
+
 /* ---------- 좌측 프로필 카드 (홈) ---------- */
 
 .profile-photo {
@@ -272,7 +276,7 @@ p { margin: 0.7rem 0; }
   padding: 0.45rem 0;
   border-bottom: 1px solid var(--border);
   display: grid;
-  grid-template-columns: 8.5rem 1fr;
+  grid-template-columns: 11rem 1fr;   /* "Mar 2019 – Feb 2025" 가 한 줄에 들어가는 폭 */
   gap: 0 1rem;
 }
 .bio-list li:last-child { border-bottom: none; }
@@ -281,6 +285,16 @@ p { margin: 0.7rem 0; }
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
   font-size: 0.92rem;
+  white-space: nowrap;   /* 기간이 두 줄로 쪼개지지 않도록 */
+}
+
+/* 항목에 딸린 보조 설명 (강의 과목, 과제 내용 등) */
+.bio-note {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.89rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 /* ---------- 원고 대기 표시 ----------

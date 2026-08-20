@@ -1,1 +1,51 @@
-[]
+[
+  {
+    "id": "2024-keti-excellence",
+    "date": "2024-01-01",
+    "title_en": "Excellence Award — “Discovering the smart city service for metropolitan living area unit beyond administrative districts”",
+    "org_en": "AI Convergence and Applied Technology Idea Competition, Korea Electronics Technology Institute (KETI)",
+    "link": ""
+  },
+  {
+    "id": "2023-gpbl-fellowship",
+    "date": "2023-06-01",
+    "title_en": "gPBL Fellowship — “Proposal of technology for the re-use of older electric vehicle batteries”",
+    "org_en": "Korea University–Korea Automotive Technology Institute gPBL Idea Competition",
+    "link": ""
+  },
+  {
+    "id": "2022-ipbl-lnp",
+    "date": "2022-12-01",
+    "title_en": "iPBL Fellowship — “Proposal of new mask sheet through the investigation on cosmetic regulations”",
+    "org_en": "Korea University–L&P Cosmetic iPBL Idea Competition",
+    "link": ""
+  },
+  {
+    "id": "2022-ipbl-lge",
+    "date": "2022-10-01",
+    "title_en": "Participation Award — “Finding new value of water purifier using artificial intelligence”",
+    "org_en": "Korea University–LG Electronics iPBL Idea Competition",
+    "link": ""
+  },
+  {
+    "id": "2022-ipbl-lgchem",
+    "date": "2022-10-01",
+    "title_en": "iPBL Fellowship — “Development of an automated sensory inspection system to address odor issues in PCR and Super Absorbent Polymer (SAP) products”",
+    "org_en": "Korea University–LG Chemistry iPBL Idea Competition",
+    "link": ""
+  },
+  {
+    "id": "2022-excellent-dissertation",
+    "date": "2022-09-01",
+    "title_en": "Excellent Dissertation Award — “Pattern classification for small-sized defects using multi-head CNN in semiconductor manufacturing”",
+    "org_en": "Korea University–Samsung Electronics Industry-Academic Cooperation Exchange Meeting",
+    "link": ""
+  },
+  {
+    "id": "2021-smart-pole",
+    "date": "2021-07-01",
+    "title_en": "Outstanding Research Team — “Development of Smart Pole start-up guidelines for revitalizing local marketing area”",
+    "org_en": "The 2nd Smart Pole Idea Contest, Korea University",
+    "link": ""
+  }
+]
