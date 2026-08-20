@@ -23,26 +23,37 @@
   </nav>
 </noscript>
 
-<main>
+<div class="layout">
 
-  <h1>Research</h1>
+  <!-- 좌측 열 — 이 페이지의 h2 제목으로 만든 목차.
+       layout.js 가 채운다. 주제가 없으면 아무것도 그리지 않는다.
+       본문에 이미 있는 제목을 모아 링크로 만드는 것이므로 본문 주입이 아니다. -->
+  <aside class="side">
+    <div id="page-toc"></div>
+  </aside>
 
-  <!-- 이 페이지의 본문은 전부 HTML 에 직접 쓴다 (검색 노출 확보, SPEC 4항).
-       주제가 여러 개면 아래 h2 블록을 복사해서 늘린다.
-       그림이 필요하면 assets/img/research/ 에 넣고 <img> 로 참조한다. -->
+  <main>
 
-  <!-- TODO(원고): 연구 분야 설명 전문. 주제별로 h2 + 설명 문단 구성 -->
-  <p class="todo">[Draft pending] The research description has not been written yet.</p>
+    <h1>Research</h1>
 
-  <!-- 주제별 블록 형태 예시 (원고가 준비되면 아래 주석을 풀어 사용)
-  <h2>Research topic 1</h2>
-  <p>Description paragraph.</p>
+    <!-- 이 페이지의 본문은 전부 HTML 에 직접 쓴다 (검색 노출 확보, SPEC 4항).
+         주제가 여러 개면 아래 h2 블록을 복사해서 늘린다. h2 를 추가하면 좌측 목차에 자동으로 나타난다.
+         그림이 필요하면 assets/img/research/ 에 넣고 <img> 로 참조한다. -->
 
-  <h2>Research topic 2</h2>
-  <p>Description paragraph.</p>
-  -->
+    <!-- TODO(원고): 연구 분야 설명 전문. 주제별로 h2 + 설명 문단 구성 -->
+    <p class="todo">[Draft pending] The research description has not been written yet.</p>
 
-</main>
+    <!-- 주제별 블록 형태 예시 (원고가 준비되면 아래 주석을 풀어 사용)
+    <h2>Research topic 1</h2>
+    <p>Description paragraph.</p>
+
+    <h2>Research topic 2</h2>
+    <p>Description paragraph.</p>
+    -->
+
+  </main>
+
+</div>
 
 <div id="site-footer"></div>
 <script src="assets/js/layout.js"></script>

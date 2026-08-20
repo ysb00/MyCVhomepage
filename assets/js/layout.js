@@ -57,6 +57,38 @@
     headerHost.appendChild(header);
   }
 
+  /* 좌측 목차 (research.html 전용)
+     본문에 이미 있는 h2 제목을 모아 링크로 만든다. 새 텍스트를 주입하는 것이 아니다.
+     h2 가 없으면 아무것도 그리지 않으므로, 원고가 오기 전에는 좌측 열이 비어 있다. */
+  var tocHost = document.getElementById('page-toc');
+  if (tocHost) {
+    var main = document.querySelector('main');
+    var heads = main ? main.querySelectorAll('h2') : [];
+
+    if (heads.length > 0) {
+      var tocHeading = document.createElement('p');
+      tocHeading.className = 'side-heading';
+      tocHeading.textContent = 'On this page';
+      tocHost.appendChild(tocHeading);
+
+      var toc = document.createElement('nav');
+      toc.className = 'anchor-nav';
+      toc.setAttribute('aria-label', 'Sections on this page');
+
+      for (var h = 0; h < heads.length; h++) {
+        // 원고에 id 를 적어두지 않았으면 자동으로 붙인다.
+        if (!heads[h].id) heads[h].id = 'section-' + (h + 1);
+
+        var link = document.createElement('a');
+        link.href = '#' + heads[h].id;
+        link.textContent = heads[h].textContent;
+        toc.appendChild(link);
+      }
+
+      tocHost.appendChild(toc);
+    }
+  }
+
   var footerHost = document.getElementById('site-footer');
   if (footerHost) {
     var footer = document.createElement('footer');

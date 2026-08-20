@@ -1,34 +1,39 @@
 /* 개인 연구 홈페이지 스타일
-   - 외부 폰트/CDN 을 쓰지 않는다 (SPEC 1항). 시스템 폰트만 사용한다.
+   - 외부 폰트/CDN 을 쓰지 않는다 (SPEC 1항). 시스템 내장 서체만 사용한다.
    - 색은 CSS 변수로 두고, 다크모드는 prefers-color-scheme 으로 변수만 교체한다.
-     (JS 토글 버튼은 두지 않는다. 상태 저장이 필요해져 구조가 복잡해진다) */
+     (JS 토글 버튼은 두지 않는다. 상태 저장이 필요해져 구조가 복잡해진다)
+   - 레이아웃: 좌측 고정 열(.side) + 우측 본문(main) 2단.
+     좁은 화면에서는 1단으로 쌓인다. */
 
 :root {
   --bg: #ffffff;
-  --bg-soft: #f6f6f4;
-  --text: #1c1c1c;
+  --bg-soft: #f7f6f3;
+  --text: #1b1b1c;
   --text-muted: #63636a;
-  --border: #e0e0dc;
+  --border: #e2e1dc;
+  --border-strong: #cfcdc5;
   --accent: #1f4e79;
   --todo-bg: #fdf6e3;
   --todo-border: #e0cfa0;
   --todo-text: #6b5518;
-  --highlight-bar: #1f4e79;
-  --max-width: 46rem;
+  --page-width: 64rem;
+  --side-width: 16rem;
+  --serif: Georgia, "Times New Roman", "Noto Serif KR", "Apple SD Gothic Neo", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", "Malgun Gothic", "Noto Sans KR", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #16181c;
-    --bg-soft: #1e2126;
-    --text: #e6e6e3;
-    --text-muted: #9a9aa2;
-    --border: #2e3238;
+    --bg: #15171a;
+    --bg-soft: #1d2024;
+    --text: #e7e6e2;
+    --text-muted: #9b9ba3;
+    --border: #2d3137;
+    --border-strong: #3d424a;
     --accent: #8ab4dd;
-    --todo-bg: #2a2517;
-    --todo-border: #4d431f;
-    --todo-text: #d6c58a;
-    --highlight-bar: #8ab4dd;
+    --todo-bg: #292416;
+    --todo-border: #4c421e;
+    --todo-text: #d5c489;
   }
 }
 
@@ -40,10 +45,9 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Segoe UI",
-               "Malgun Gothic", "Noto Sans KR", sans-serif;
-  font-size: 17px;
-  line-height: 1.75;
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.7;
   word-break: keep-all;      /* 한국어 줄바꿈이 단어 중간에서 끊기지 않도록 */
   overflow-wrap: break-word; /* 단, 긴 URL 은 넘치지 않게 강제 줄바꿈 */
 }
@@ -58,10 +62,16 @@ a:hover { text-decoration: none; }
   background: var(--bg);
 }
 
-.site-header-inner {
-  max-width: var(--max-width);
+.site-header-inner,
+.site-tabs {
+  max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0.9rem 1.2rem 0;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.site-header-inner {
+  padding-top: 1.1rem;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -69,26 +79,18 @@ a:hover { text-decoration: none; }
 }
 
 .site-title {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
   color: var(--text);
   text-decoration: none;
   margin-right: auto;
 }
 
-.lang-switch {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-/* 탭 바 — 3개 탭이 루트 HTML 3개와 1:1 대응한다 (SPEC 2항) */
+/* 탭 바 — 3개 탭이 HTML 3개와 1:1 대응한다 (SPEC 2항) */
 .site-tabs {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1.2rem;
   display: flex;
-  gap: 1.4rem;
+  gap: 1.6rem;
   overflow-x: auto;            /* 좁은 폰 화면에서 탭이 잘리지 않도록 */
   scrollbar-width: none;
 }
@@ -96,7 +98,8 @@ a:hover { text-decoration: none; }
 
 .site-tabs a {
   display: block;
-  padding: 0.5rem 0 0.6rem;
+  padding: 0.55rem 0 0.65rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   text-decoration: none;
   white-space: nowrap;
@@ -114,62 +117,77 @@ a:hover { text-decoration: none; }
 
 /* JS 가 꺼져 있을 때만 보이는 대체 내비게이션 */
 .noscript-nav {
-  max-width: var(--max-width);
+  max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0.8rem 1.2rem;
+  padding: 0.8rem 1.5rem;
   border-bottom: 1px solid var(--border);
   font-size: 0.9rem;
 }
 
-/* ---------- 본문 ---------- */
+/* ---------- 2단 레이아웃 ---------- */
 
-main {
-  max-width: var(--max-width);
+.layout {
+  max-width: var(--page-width);
   margin: 0 auto;
-  padding: 2rem 1.2rem 3rem;
+  padding: 2.5rem 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: var(--side-width) 1fr;
+  gap: 3rem;
+  align-items: start;
 }
 
+/* 좌측 열. 스크롤해도 따라오도록 고정한다 */
+.side {
+  position: sticky;
+  top: 1.5rem;
+  font-size: 0.92rem;
+}
+
+main { min-width: 0; }   /* 그리드 안에서 긴 문자열이 열을 밀어내지 않도록 */
+
+/* ---------- 제목 ---------- */
+
 h1 {
-  font-size: 1.75rem;
-  line-height: 1.35;
-  letter-spacing: -0.02em;
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
   margin: 0 0 1.2rem;
 }
 
 h2 {
+  font-family: var(--serif);
   font-size: 1.2rem;
-  letter-spacing: -0.01em;
-  margin: 2.4rem 0 0.7rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 1px solid var(--border);
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border-strong);
 }
 
+main > h2:first-child { margin-top: 0; }
+
 h3 {
-  font-size: 1rem;
-  margin: 1.4rem 0 0.4rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 1.5rem 0 0.5rem;
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 p { margin: 0.7rem 0; }
 
-/* ---------- 홈: 프로필 ---------- */
-
-.profile {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 0.5rem;
-}
+/* ---------- 좌측 프로필 카드 (홈) ---------- */
 
 .profile-photo {
-  width: 132px;
-  height: 132px;
-  flex: none;
-  border-radius: 6px;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 5px;
   object-fit: cover;
   background: var(--bg-soft);
+  margin-bottom: 1rem;
 }
 
 /* 사진 원고가 오기 전까지 자리만 잡아두는 상자 */
@@ -181,48 +199,88 @@ p { margin: 0.7rem 0; }
   font-size: 0.8rem;
   line-height: 1.5;
   color: var(--text-muted);
-  border: 1px dashed var(--border);
+  border: 1px dashed var(--border-strong);
 }
 
-.profile-text { min-width: 15rem; flex: 1; }
-.profile-text h1 { margin: 0 0 0.4rem; }
+.side h1 {
+  font-size: 1.55rem;
+  margin: 0 0 0.15rem;
+}
 
 .name-en {
   display: block;
-  font-size: 1rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
   font-weight: 400;
   color: var(--text-muted);
   letter-spacing: 0;
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
 }
 
-.affiliation { margin: 0.2rem 0; }
-.tagline { margin: 0.4rem 0 0; color: var(--text-muted); }
+.affiliation { margin: 0.5rem 0 0; line-height: 1.55; }
 
-/* ---------- 목록 ---------- */
+.tagline {
+  margin: 0.6rem 0 0;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  line-height: 1.55;
+}
 
-.link-list, .bio-list {
+/* 좌측 열 안의 작은 구획 제목 */
+.side-heading {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin: 1.6rem 0 0.5rem;
+}
+
+.link-list {
   list-style: none;
-  margin: 0.6rem 0;
+  margin: 0;
   padding: 0;
 }
 
-.link-list li { padding: 0.2rem 0; }
+.link-list li {
+  padding: 0.18rem 0;
+  line-height: 1.5;
+}
+
+/* CV 내려받기 — 좌측 열에서 유일하게 버튼처럼 보이는 요소 */
+.cv-link {
+  display: inline-block;
+  margin-top: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+.cv-link:hover { border-color: var(--accent); }
+
+/* ---------- 약력 목록 ---------- */
+
+.bio-list {
+  list-style: none;
+  margin: 0.4rem 0;
+  padding: 0;
+}
 
 .bio-list li {
-  padding: 0.35rem 0;
+  padding: 0.45rem 0;
   border-bottom: 1px solid var(--border);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem 1rem;
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0 1rem;
 }
 .bio-list li:last-child { border-bottom: none; }
 
 .bio-year {
-  flex: none;
-  width: 9rem;
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
+  font-size: 0.92rem;
 }
 
 /* ---------- 원고 대기 표시 ----------
@@ -230,57 +288,92 @@ p { margin: 0.7rem 0; }
    대신 눈에 띄게 표시해 빠뜨리지 않도록 한다. */
 
 .todo {
+  display: block;
   background: var(--todo-bg);
   border-left: 3px solid var(--todo-border);
   color: var(--todo-text);
   padding: 0.4rem 0.7rem;
   border-radius: 0 3px 3px 0;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
 }
 li.todo { margin: 0.3rem 0; }
+.bio-list li.todo { display: block; }
 
 /* ---------- 연구 실적 ---------- */
 
+/* 좌측 열의 섹션 이동 링크 (SPEC 4.2 앵커) */
 .anchor-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1rem;
-  padding: 0.7rem 0.9rem;
-  margin-bottom: 1.4rem;
-  background: var(--bg-soft);
-  border-radius: 5px;
-  font-size: 0.9rem;
+  flex-direction: column;
+  gap: 0.1rem;
+  border-left: 1px solid var(--border);
+}
+
+.anchor-nav a {
+  padding: 0.22rem 0 0.22rem 0.8rem;
+  margin-left: -1px;
+  border-left: 2px solid transparent;
+  color: var(--text-muted);
+  text-decoration: none;
+  line-height: 1.45;
+}
+.anchor-nav a:hover {
+  color: var(--text);
+  border-left-color: var(--border-strong);
 }
 
 .pub-section { scroll-margin-top: 1rem; }
 
+/* 한 연도 묶음: 왼쪽 거터에 연도, 오른쪽에 그 해의 항목들 */
+.pub-group {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 0 1.1rem;
+  margin-top: 1rem;
+}
+
+/* h3 의 기본 여백과 자간을 물려받으면 연도가 항목 첫 줄보다 아래로 밀린다.
+   거터의 연도는 항목 첫 줄과 눈높이가 맞아야 하므로 여기서 초기화한다. */
 .pub-year {
-  margin: 1.3rem 0 0.4rem;
+  font-family: var(--serif);
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 0;
+  padding-top: 0.55rem;
 }
 
 .pub-item {
-  padding: 0.55rem 0 0.55rem 0.9rem;
-  border-left: 2px solid var(--border);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
 }
+.pub-items > .pub-item:last-child { border-bottom: none; }
 
 /* highlight: true 인 항목 (교신저자 논문, 대표 성과 등) */
 .pub-item.is-highlight {
-  border-left-color: var(--highlight-bar);
-  background: var(--bg-soft);
-  border-radius: 0 4px 4px 0;
-  padding-right: 0.7rem;
+  border-left: 2px solid var(--accent);
+  padding-left: 0.7rem;
+  margin-left: -0.9rem;
 }
 
-.pub-title { display: block; font-weight: 600; }
-.pub-authors, .pub-venue { display: block; font-size: 0.92rem; color: var(--text-muted); }
+.pub-title {
+  display: block;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.pub-authors, .pub-venue {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
 .pub-venue { font-style: italic; }
-.pub-link { font-size: 0.85rem; }
 
-.pub-note { font-size: 0.88rem; color: var(--text-muted); }
+.pub-note { font-size: 0.86rem; color: var(--text-muted); }
 
 /* JSON 로드 실패 시 원인을 화면에 띄운다 (SPEC 5항).
    폰에서 JSON 문법을 틀렸을 때 여기서 알아챌 수 있어야 한다. */
@@ -297,27 +390,43 @@ li.todo { margin: 0.3rem 0; }
 
 .site-footer {
   border-top: 1px solid var(--border);
-  margin-top: 2rem;
 }
 
 .site-footer-inner {
-  max-width: var(--max-width);
+  max-width: var(--page-width);
   margin: 0 auto;
-  padding: 1.2rem;
+  padding: 1.2rem 1.5rem;
   font-size: 0.85rem;
   color: var(--text-muted);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem 1rem;
 }
 
-/* ---------- 좁은 화면 ---------- */
+/* ---------- 좁은 화면: 1단으로 쌓는다 ---------- */
+
+@media (max-width: 54rem) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1.2rem 3rem;
+  }
+  .side {
+    position: static;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  /* 폰에서는 사진이 화면을 다 먹지 않도록 줄이고 이름 옆에 붙인다 */
+  .profile-photo { width: 108px; height: 108px; aspect-ratio: auto; float: left; margin-right: 1.1rem; }
+  .side::after { content: ""; display: block; clear: both; }
+  .site-header-inner, .site-tabs, .noscript-nav, .site-footer-inner {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+  .anchor-nav { flex-direction: row; flex-wrap: wrap; border-left: none; gap: 0.3rem 1rem; }
+  .anchor-nav a { padding: 0; border-left: none; margin-left: 0; }
+  .bio-list li { grid-template-columns: 1fr; }
+}
 
 @media (max-width: 32rem) {
   body { font-size: 16px; }
-  main { padding: 1.5rem 1rem 2.5rem; }
-  .site-header-inner, .site-tabs, .noscript-nav, .site-footer-inner { padding-left: 1rem; padding-right: 1rem; }
-  .profile { gap: 1rem; }
-  .profile-photo { width: 96px; height: 96px; }
-  .bio-year { width: 100%; }
+  .pub-group { grid-template-columns: 1fr; gap: 0; }
+  .pub-year { padding-top: 0; margin-top: 0.8rem; }
 }
