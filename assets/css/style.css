@@ -288,6 +288,15 @@ main ul li { padding: 0.12rem 0; }
   white-space: nowrap;   /* 기간이 두 줄로 쪼개지지 않도록 */
 }
 
+/* 과제의 발주처. 제목 다음 줄에 둔다.
+   제목 옆에 붙이면 제목이 길어질 때 어디까지가 과제명인지 읽기 어렵다. */
+.bio-org {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
 /* 항목에 딸린 보조 설명 (강의 과목, 과제 내용 등) */
 .bio-note {
   display: block;
