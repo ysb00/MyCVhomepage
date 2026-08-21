@@ -294,9 +294,12 @@ main ul li { padding: 0.12rem 0; }
   display: block;
   margin-top: 0.15rem;
   font-size: 0.92rem;
-  font-weight: 700;
+  font-style: italic;
   color: var(--text);
 }
+
+/* 발주처 줄 안의 담당 역할. 줄 전체가 이탤릭이므로 정체로 뒤집어 구분한다. */
+.bio-org em { font-style: normal; }
 
 /* 항목에 딸린 보조 설명 (강의 과목, 과제 내용 등) */
 .bio-note {
