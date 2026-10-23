@@ -328,5 +328,55 @@
     "venue_en": "KR Patent (pending)",
     "link": "",
     "highlight": false
+  },
+  {
+    "id": "2025-conf-02",
+    "year": 2025,
+    "type": "conference",
+    "authors_en": "이완태, 변윤선, 우자르 알리, 이승현, 신순우, 김현철*, 김인영*, 이택민*",
+    "title_en": "코팅 공정의 데이터기반 파티셔닝 알고리즘에 대한 연구",
+    "venue_en": "2025 한국생산제조학회 학술발표대회 논문집, 406-406",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2025-conf-03",
+    "year": 2025,
+    "type": "conference",
+    "authors_en": "변윤선, 이완태, 이택민, 김인영",
+    "title_en": "공정 조건 변동을 고려한 AI 기반 롤투롤 인쇄장비 장력 안정성 분석 모델링",
+    "venue_en": "2025 대한산업공학회 춘계공동학술대회 논문집, 1612-1619",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2025-conf-04",
+    "year": 2025,
+    "type": "conference",
+    "authors_en": "변윤선, 이택민, 김인영",
+    "title_en": "롤투롤 공정 데이터 품질 확보와 AI 최적화를 통한 제조 장비 신뢰성 향상",
+    "venue_en": "2025 한국신뢰성학회 학술대회논문집, 39-39",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2025-conf-05",
+    "year": 2025,
+    "type": "conference",
+    "authors_en": "변윤선, 이택민, 김인영",
+    "title_en": "롤투롤 생산 공정의 스마트 제조 구현을 위한 AI 모델링과 데이터 활용 전략",
+    "venue_en": "2025 한국생산제조학회 학술발표대회 논문집, 6-6",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "2025-conf-06",
+    "year": 2025,
+    "type": "conference",
+    "authors_en": "김준협, 송성훈, 이승민, 안민기, 허효범, 변윤선, 박승환",
+    "title_en": "반도체 CMP 공정에서의 신뢰성 있는 MRR 예측 모델링 기법",
+    "venue_en": "2025 한국신뢰성학회 학술대회논문집, 80-80",
+    "link": "",
+    "highlight": false
   }
 ]
