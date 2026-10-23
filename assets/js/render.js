@@ -27,7 +27,10 @@
   // JSON 을 읽는다. 문법 오류와 404 를 구분해서 알려준다.
   function loadJson(name) {
     var url = 'data/' + name;
-    return fetch(url).then(function (res) {
+    // cache: 'no-cache' — 캐시는 쓰되 매번 서버에 변경 여부를 확인한다.
+    // GitHub Pages 가 JSON 에 10분짜리 캐시 헤더를 붙여, 이것이 없으면 폰에서 데이터를
+    // 고쳐 커밋해도 최대 10분간 예전 목록이 보인다. 파일이 그대로면 서버가 304 만 돌려준다.
+    return fetch(url, { cache: 'no-cache' }).then(function (res) {
       if (!res.ok) throw new Error(url + ' (HTTP ' + res.status + ')');
       return res.text();
     }).then(function (text) {
