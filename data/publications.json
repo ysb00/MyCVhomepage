@@ -288,5 +288,25 @@
     "venue_en": "Advanced Engineering Informatics (under review)",
     "link": "",
     "highlight": false
+  },
+  {
+    "id": "2026-jour-01",
+    "year": 2026,
+    "type": "journal",
+    "authors_en": "Wan Tae Lee, Yunseon Byun, Uzair Ali, Seung-Hyun Lee, Soonwoo Shin, Hyun Chul Kim*, Inyoung Kim*, Taik-Min Lee*",
+    "title_en": "AI modeling of roll-to-roll coating system for manufacturing secondary battery electrodes",
+    "venue_en": "Manufacturing Letters, 49, 42-50",
+    "link": "",
+    "highlight": false
+  },
+  {
+    "id": "working-rewinder-tension",
+    "year": "",
+    "type": "working",
+    "authors_en": "Muhammad Irfan, Uzair Ali, Qasim Shahzad, Yunseon Byun, Seung-Hyun Lee, Inyoung Kim*, Taik-Min Lee*",
+    "title_en": "Digital twin-integrated AI modeling and adaptive PI gain optimization for rewinder tension control in roll-to-roll manufacturing",
+    "venue_en": "International Journal of Precision Engineering and Manufacturing (accepted)",
+    "link": "",
+    "highlight": false
   }
 ]
